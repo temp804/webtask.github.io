@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Magazine - Home</title>
+    <link rel="website icon" type="png" href="home_icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        nav {
+            background: #333;
+            position: relative;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background: #ff4500;
+            border-radius: 5px;
+            text-decoration: underline;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search {
+            margin-left: 11px;
+            border-radius: 10px;
+            border: 0px solid #535151;
+            background-color: blue;
+            color: whitesmoke;
+            font-size: 20px;
+        }
+
+        .search:focus {
+            border: 0px solid #535151;
+            background-color: blue;
+            transform: scale(1.1);
+        }
+
+        .search:hover {
+            border: 1px solid black;
+        }
+
+        #searchBar:hover {
+            border-radius: 10px;
+            border: 1px solid #535151;
+            background-color: lightgray;
+            transform: scale(1.1);
+        }
+
+        .btn-toggle {
+            margin-left: 10px;
+            padding-left: 5px;
+            border-radius: 10px;
+            border: 0px solid #535151;
+            font-size: 20px;
+        }
+
+        .categories {
+            background: #f1f1f1;
+            padding: 50px 20px;
+        }
+
+        .category-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .categories h2 {
+            margin-bottom: 20px;
+        }
+
+        .categories h2:hover {
+            color: teal;
+        }
+
+        .category {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .categories {
+            background: #333;
+            color: blue;
+        }
+
+        .hero {
+            background: url('https://png.pngtree.com/thumb_back/fh260/background/20211121/pngtree-abstract-halftones-background-blue-and-purple-image_916735.png') no-repeat center center/cover;
+            color: rgb(177, 18, 18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero div h2 {
+            font-size: 40px;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .hero div h2:hover {
+            color: #e61111;
+            transform: scale(1.1);
+            text-shadow: 2px 2px 10px rgba(230, 17, 17, 0.7);
+        }
+
+        .hero div p {
+            font-size: 20px;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .hero div p:hover {
+            color: turquoise;
+            transform: translateY(-3px);
+            text-shadow: 1px 1px 5px rgba(64, 224, 208, 0.7);
+        }
+
+        .article-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .article {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            overflow: hidden;
+            padding: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .article img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .article img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.1);
+        }
+
+        .article a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .article a:hover {
+            background: #e63900;
+        }
+
+        .dark-mode .article {
+            background: #333;
+            color: white;
+        }
+
+        .latest-articles,
+        .newsletter {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .category {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category:hover {
+            border-radius: 30px;
+            background-color: #20b2aa;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.258);
+            transform: scale(1.05);
+            color: blue;
+        }
+
+        .newsletter {
+            background: blue;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .newsletter input {
+            padding: 10px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .newsletter button {
+            padding: 10px 15px;
+            background: white;
+            color: #ff4500;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .newsletter button:hover {
+            transform: scale(1.1);
+            background-color: lightsalmon;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-container {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            #searchBar {
+                width: 100%;
+            }
+
+            .hero div h2 {
+                font-size: 30px;
+            }
+
+            .hero div p {
+                font-size: 16px;
+            }
+
+            .article {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .category {
+                width: 100%;
+            }
+
+            .newsletter input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .newsletter button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            .hero div h2 {
+                font-size: 24px;
+            }
+
+            .hero div p {
+                font-size: 14px;
+            }
+
+            .categories h2,
+            .latest-articles h2,
+            .newsletter h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Elevate Magazine</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html" class="active text-light">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="fashion.html">Fashion</a></li>
+            <li><a href="tech.html">Tech</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <div class="search-container">
+            <input type="text" id="searchBar" class="form-control text-black w-full px-2 s"
+                placeholder="Search magazines..." onkeyup="searchMagazine()">
+            <button class="search" onclick="searchMagazine()">Search</button>
+            <button class="btn-toggle" id="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <h2>Welcome to the Future of Digital Magazines</h2>
+            <p>Explore the latest trends in news, fashion, and technology.</p>
+        </div>
+    </section>
+
+    <section class="latest-articles">
+        <h2>Latest Magazine</h2>
+        <div class="article-container" id="articles">
+            <div class="article">
+                <img src="1.jpg" alt="News">
+                <h3>Forbes</h3>
+                <p>Know more about Paul Adefarasin</p>
+                <a href="https://drive.google.com/file/d/1v5GCpfIcAXqzaUqLBi01FDum89WQl4_P/view" target="_parent">Read
+                    More</a>
+            </div>
+            <div class="article">
+                <img src="3.jpg" alt="Fashion">
+                <h3>Outlook Money</h3>
+                <p>Should You Invest In Debt Funds Now?Know here</p>
+                <a href="https://drive.google.com/file/u/2/d/1dJtyOqHGXkapnVmdGPcPPz6n9j3i5yqb/view?usp=drive_open"
+                    target="_parent">Read More</a>
+            </div>
+            <div class="article">
+                <img src="2.jpg" alt="Tech">
+                <h3>Animation Magazine</h3>
+                <p>DreamWorks Puts Po Back in DreamWorks Puts Po Back in
+                    Action for Kung Fu Panda 4</p>
+                <a href="https://drive.google.com/file/d/1wGyVmmX7URraSXZqajdkZPwAEXuuJqc3/view" target="_parent">Read
+                    More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <h2>Explore Categories</h2>
+        <div class="category-container">
+            <div class="category" onclick="window.location.href='news.html'">News</div>
+            <div class="category" onclick="window.location.href='Fashion.html'">Fashion</div>
+            <div class="category" onclick="window.location.href='tech.html'">Tech</div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Subscribe to Our Magazine</h2>
+        <input type="email" placeholder="Enter your email">
+        <button>Subscribe</button>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Magazine | All Rights Reserved</p>
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link text-white" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Privacy Policy</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Terms & Conditions</a></li>
+            </ul>
+            <div class="social-links d-flex justify-content-center gap-3 mt-3">
+                <a href="#" class="text-white">Facebook</a>
+                <a href="#" class="text-white">Twitter</a>
+                <a href="#" class="text-white">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+
+        document.getElementById('searchBar').addEventListener('keyup', function () {
+            let filter = this.value.toLowerCase();
+            let articles = document.querySelectorAll('.article');
+
+            articles.forEach(article => {
+                let textContent = article.textContent.toLowerCase();
+                article.style.display = textContent.includes(filter) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

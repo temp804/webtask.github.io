@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Magazine - About</title>
+    <link rel="website icon" type="png" href="about_icon.png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        nav {
+            background: #333;
+            padding: 10px 0;
+            position: relative;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background: #ff4500;
+            border-radius: 5px;
+        }
+
+        .btn-toggle {
+            border-radius: 10px;
+            border: 0px solid #535151;
+            font-size: 20px;
+            padding-left: 5px;
+        }
+
+        .read-more-btn {
+            background-color: transparent;
+            color: #007bff;
+            border: 1px solid #007bff;
+            padding: 5px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .read-more-btn:hover {
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+        }
+
+        .card-header {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .card-body {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-toggle {
+                margin-left: 0;
+            }
+
+            h2 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            p {
+                font-size: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav ul li a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Elevate Magazine</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="fashion.html">Fashion</a></li>
+            <li><a href="tech.html">Tech</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html" class="active text-light">About</a></li>
+        </ul>
+
+        <div class="search-container">
+            <button class="btn-toggle" id="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container my-4">
+            <h2 class="text-center mb-4">About Us</h2>
+            <p class="text-center">Welcome to our Magazine website! We bring you the latest in news, fashion, tech, and more. Our mission is to provide high-quality content that informs, entertains, and inspires our readers. Stay tuned for the latest updates and trends!</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Magazine | All Rights Reserved</p>
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link text-white" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Privacy Policy</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Terms & Conditions</a></li>
+            </ul>
+            <div class="social-links d-flex justify-content-center gap-3 mt-3">
+                <a href="#" class="text-white">Facebook</a>
+                <a href="#" class="text-white">Twitter</a>
+                <a href="#" class="text-white">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+
+</html>

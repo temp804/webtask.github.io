@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Magazine - Tech</title>
+    <link rel="website icon" type="png" href="tech_icon.png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        nav {
+            background: #333;
+            padding: 10px 0;
+            position: relative;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background: #ff4500;
+            border-radius: 5px;
+        }
+
+        .btn-toggle {
+            border-radius: 10px;
+            border: 0px solid #535151;
+            font-size: 20px;
+            margin-left: 10px;
+            padding-left: 5px;
+        }
+
+        .card-header {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .read-more-btn {
+            background-color: transparent;
+            color: #007bff;
+            border: 1px solid #007bff;
+            padding: 5px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .read-more-btn:hover {
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+        }
+
+        .card-body {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-toggle {
+                margin-left: 0;
+            }
+
+            .col-md-4,
+            .col-md-8 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .col-md-4 img {
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav ul li a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .read-more-btn {
+                padding: 5px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Elevate Magazine</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="fashion.html">Fashion</a></li>
+            <li><a href="tech.html" class="active text-light">Tech</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <div class="search-container">
+            <button class="btn-toggle" id="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container my-4">
+            <h2 class="text-center mb-4">Latest Tech News</h2>
+            <div class="tech-articles">
+                
+                <article class="mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="https://logicmojo.com/assets/dist/new_pages/images/AIandMLintro.jpg"
+                                alt="Tech News Image 1" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-8">
+                            <h3>Tech News Article 1</h3>
+                            <p>Details of tech news go here. This article covers the latest advancements in AI and
+                                machine learning, exploring how these technologies are shaping the future of our world.
+                            </p>
+
+                            
+                            <div id="accordion1">
+                                <div class="card">
+                                    <div class="card-header d-inline-block">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link read-more-btn" data-toggle="collapse"
+                                                data-target="#collapseOne1" aria-expanded="true"
+                                                aria-controls="collapseOne1">
+                                                Read More
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne1" class="collapse" aria-labelledby="headingOne1"
+                                        data-parent="#accordion1">
+                                        <div class="card-body">
+                                            <p>Detailed information about Tech News Article 1 goes here. The full article
+                                                explores how AI is revolutionizing industries, from healthcare to
+                                                finance. Learn about the breakthroughs in AI technology that are shaping
+                                                our future.</p>
+                                            <p>For example, AI is now capable of performing tasks such as natural
+                                                language processing, computer vision, and even decision-making. These
+                                                advancements are leading to smarter automation systems and enhancing the
+                                                user experience in countless applications.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="https://mediatech.edu/wp-content/uploads/2023/11/IMG_1084-Large.jpeg"
+                                alt="Tech News Image 2" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-8">
+                            <h3>Tech News Article 2</h3>
+                            <p>This article focuses on the impact of 5G networks and how they are transforming the
+                                connectivity landscape. Learn about the innovations that 5G is bringing to the tech
+                                world.</p>
+
+                            <div id="accordion2">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link read-more-btn" data-toggle="collapse"
+                                                data-target="#collapseOne2" aria-expanded="true"
+                                                aria-controls="collapseOne2">
+                                                Read More
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2"
+                                        data-parent="#accordion2">
+                                        <div class="card-body">
+                                            <p>Detailed information about Tech News Article 2 goes here. This full
+                                                article explains how 5G is improving internet speeds and enabling new
+                                                opportunities for businesses. The roll-out of 5G will pave the way for
+                                                advancements in industries such as healthcare, autonomous vehicles, and
+                                                smart cities.</p>
+                                            <p>One of the key features of 5G is its low latency, which allows for
+                                                near-instantaneous communication between devices. This will revolutionize
+                                                industries such as gaming, where real-time interaction is crucial, and
+                                                IoT, where countless devices need to communicate with each other
+                                                seamlessly.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="https://res.cloudinary.com/jerrick/image/upload/c_scale,f_jpg,q_auto/67540375dee82e001def7613.jpg"
+                                alt="Tech News Image 3" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-8">
+                            <h3>Tech News Article 3</h3>
+                            <p>This article dives into the world of quantum computing, explaining what it is, how it
+                                works, and what it means for the future of technology and computing power.</p>
+
+                            <div id="accordion3">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link read-more-btn" data-toggle="collapse"
+                                                data-target="#collapseOne3" aria-expanded="true"
+                                                aria-controls="collapseOne3">
+                                                Read More
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne3" class="collapse" aria-labelledby="headingOne3"
+                                        data-parent="#accordion3">
+                                        <div class="card-body">
+                                            <p>Detailed information about Tech News Article 3 goes here. This article
+                                                explains the principles of quantum computing, including quantum bits
+                                                (qubits), superposition, and entanglement. Quantum computers have the
+                                                potential to solve complex problems that classical computers can't
+                                                handle.</p>
+                                            <p>By harnessing the power of quantum mechanics, these computers could
+                                                revolutionize fields such as cryptography, materials science, and
+                                                artificial intelligence. However, there are still significant challenges
+                                                in building scalable quantum computers, but the research is moving
+                                                forward rapidly.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="https://lanoticiadigital.com.ar/wp-content/uploads/2025/01/compressed_img-jy61u5TjlfkYXD6Sm2yFDuA1.png"
+                                alt="Tech News Image 4" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-8">
+                            <h3>Tech News Article 4</h3>
+                            <p>Discover the rise of electric vehicles and how the tech industry is advancing in terms of
+                                eco-friendly solutions for the transportation sector.</p>
+
+                            <div id="accordion4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link read-more-btn" data-toggle="collapse"
+                                                data-target="#collapseOne4" aria-expanded="true"
+                                                aria-controls="collapseOne4">
+                                                Read More
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne4" class="collapse" aria-labelledby="headingOne4"
+                                        data-parent="#accordion4">
+                                        <div class="card-body">
+                                            <p>Detailed information about Tech News Article 4 goes here. This article
+                                                explores the electric vehicle (EV) revolution and the role of technology
+                                                in making EVs more efficient, affordable, and accessible. From battery
+                                                innovations to autonomous driving features, the future of transportation
+                                                is rapidly evolving.</p>
+                                            <p>Leading companies in the tech industry are working on developing new
+                                                solutions to improve electric vehicle performance, reduce charging times,
+                                                and expand the availability of charging stations. As more consumers make
+                                                the switch to electric cars, we are on the cusp of a green transportation
+                                                revolution.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Magazine | All Rights Reserved</p>
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link text-white" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Privacy Policy</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Terms & Conditions</a></li>
+            </ul>
+            <div class="social-links d-flex justify-content-center gap-3 mt-3">
+                <a href="#" class="text-white">Facebook</a>
+                <a href="#" class="text-white">Twitter</a>
+                <a href="#" class="text-white">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+
+</html>

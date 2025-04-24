@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Magazine - Fashion</title>
+    <link rel="website icon" type="png" href="fashion_icon.png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        nav {
+            background: #333;
+            padding: 10px 0;
+            position: relative;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background: #ff4500;
+            border-radius: 5px;
+        }
+
+        .btn-toggle {
+            border-radius: 10px;
+            border: 0px solid #535151;
+            font-size: 20px;
+            margin-left: 10px;
+            padding-left: 5px;
+        }
+
+        .card-header {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .read-more-btn {
+            background-color: transparent;
+            color: #007bff;
+            border: 1px solid #007bff;
+            padding: 5px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .read-more-btn:hover {
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+        }
+
+        .card-body {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-toggle {
+                margin-left: 0;
+            }
+
+            .col-md-4,
+            .col-md-8 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .col-md-4 img {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Elevate Magazine</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="fashion.html" class="active text-light">Fashion</a></li>
+            <li><a href="tech.html">Tech</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <div class="search-container">
+            <button class="btn-toggle" id="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container my-4">
+            <h2 class="text-center mb-4">Latest Fashion Trends</h2>
+            <article class="mb-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkqOrXZ2p9ra8A3pJcW33JoS2UMLGNmpI8LQ&s"
+                            alt="Fashion Trend 1" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Top 10 Summer Fashion Trends of 2025</h3>
+                        <p>This article highlights the hottest fashion trends for the summer season.</p>
+                        <div id="accordion1">
+                            <div class="card">
+                                <div class="card-header d-inline-block">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link read-more-btn" data-toggle="collapse"
+                                            data-target="#collapseOne1" aria-expanded="true"
+                                            aria-controls="collapseOne1">
+                                            Read More
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne1" class="collapse" aria-labelledby="headingOne1"
+                                    data-parent="#accordion1">
+                                    <div class="card-body">
+                                        <p>Detailed information about summer fashion trends goes here. Explore the
+                                            latest colours, cuts, and accessories that will dominate the summer fashion
+                                            scene. We delve into the must-have items and how to incorporate them into
+                                            your wardrobe.</p>
+                                        <p>This season features vibrant colours and unique patterns.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="mb-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi2vnZEbKoMXoW79fIx0igyfIE7ji-NtS3-g&s"
+                            alt="Fashion Trend 2" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Exploring Vintage Styles: A Fashion Revival</h3>
+                        <p>This fashion article discusses the resurgence of vintage clothing in modern fashion.</p>
+                        <div id="accordion2">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link read-more-btn" data-toggle="collapse"
+                                            data-target="#collapseOne2" aria-expanded="true"
+                                            aria-controls="collapseOne2">
+                                            Read More
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2"
+                                    data-parent="#accordion2">
+                                    <div class="card-body">
+                                        <p>Detailed information about the revival of vintage styles goes here. We look
+                                            at how classic pieces from different eras are making a comeback. Discover
+                                            how designers are reinterpreting vintage trends for a modern audience.</p>
+                                        <p>Learn about sourcing vintage items, styling tips, and how to blend vintage
+                                            pieces with contemporary fashion.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="mb-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE4nFuDAtLSURidSV3ALy-HXVCvSyDxBD8Og&s"
+                            alt="Fashion Trend 1" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Top 10 Summer Fashion Trends of 2025</h3>
+                        <p>This article highlights the hottest fashion trends for the summer season.</p>
+                        <div id="accordion1">
+                            <div class="card">
+                                <div class="card-header d-inline-block">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link read-more-btn" data-toggle="collapse"
+                                            data-target="#collapseOne1" aria-expanded="true"
+                                            aria-controls="collapseOne1">
+                                            Read More
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne1" class="collapse" aria-labelledby="headingOne1"
+                                    data-parent="#accordion1">
+                                    <div class="card-body">
+                                        <p>Detailed information about summer fashion trends goes here. Explore the
+                                            latest colours, cuts, and accessories that will dominate the summer fashion
+                                            scene. We delve into the must-have items and how to incorporate them into
+                                            your wardrobe.</p>
+                                        <p>This season features vibrant colours and unique patterns.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Magazine | All Rights Reserved</p>
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link text-white" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Privacy Policy</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Terms & Conditions</a></li>
+            </ul>
+            <div class="social-links d-flex justify-content-center gap-3 mt-3">
+                <a href="#" class="text-white">Facebook</a>
+                <a href="#" class="text-white">Twitter</a>
+                <a href="#" class="text-white">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+
+</html>
